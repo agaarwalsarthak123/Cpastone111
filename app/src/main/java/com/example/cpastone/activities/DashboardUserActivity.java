@@ -67,6 +67,7 @@ public class DashboardUserActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(DashboardUserActivity.this, ProfileActivity.class));
 
+
             }
         });
 

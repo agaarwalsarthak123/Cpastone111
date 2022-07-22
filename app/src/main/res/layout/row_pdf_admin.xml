@@ -14,18 +14,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="90dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/pdfRl"
+            android:text="Book Title:"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="29dp"
+            android:layout_toEndOf="@+id/pdfRl"
+            android:text="Description:" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/descriptionTv"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="7dp"
+            android:layout_toEndOf="@+id/pdfRl"
+            android:text="Pdf Size:" />
+
         <RelativeLayout
             android:id="@+id/pdfRl"
             android:layout_width="100dp"
             android:layout_height="140dp"
-            android:layout_marginEnd="5dp"
-            android:background="@color/gray02" />
+            android:layout_marginEnd="5dp" />
 
         <TextView
             android:id="@+id/titleTv"
             style="@style/TextAppearance.MaterialComponents.Headline6"
-            android:layout_width="match_parent"
+            android:layout_width="164dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="103dp"
             android:layout_toStartOf="@+id/moreBtn"
             android:layout_toEndOf="@+id/pdfRl"
             android:maxLines="1"
@@ -34,10 +65,11 @@
         <TextView
             android:id="@+id/descriptionTv"
             style="@style/TextAppearance.MaterialComponents.Body2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="297dp"
+            android:layout_height="51dp"
             android:layout_below="@+id/titleTv"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/pdfRl"
             android:ellipsize="end"
             android:maxLines="4"
@@ -56,12 +88,14 @@
         <TextView
             android:id="@+id/sizeTv"
             style="@style/TextAppearance.MaterialComponents.Caption"
-            android:layout_width="70dp"
-            android:layout_height="18dp"
+            android:layout_width="54dp"
+            android:layout_height="21dp"
             android:layout_below="@+id/descriptionTv"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="58dp"
-            android:layout_marginEnd="175dp"
+            android:layout_marginStart="62dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="134dp"
+            android:layout_marginBottom="1dp"
             android:layout_toStartOf="@+id/categoryTv"
             android:layout_toEndOf="@+id/pdfRl"
             android:maxLines="1"
@@ -76,6 +110,11 @@
             android:src="@drawable/ic_more_blac"
             android:layout_alignParentEnd="true" />
 
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
 
 
     </RelativeLayout>

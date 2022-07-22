@@ -51,7 +51,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.4293487548828126" />
         <entry key="app/src/main/res/layout/activity_maps.xml" value="0.20104372328606201" />
         <entry key="app/src/main/res/layout/activity_pdf_add.xml" value="0.3876388549804688" />
-        <entry key="app/src/main/res/layout/activity_pdf_detail.xml" value="0.3563216854827573" />
+        <entry key="app/src/main/res/layout/activity_pdf_detail.xml" value="0.3554824520843197" />
         <entry key="app/src/main/res/layout/activity_pdf_edit.xml" value="0.3095984338143918" />
         <entry key="app/src/main/res/layout/activity_pdf_list_admin.xml" value="0.3399200439453125" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.3775069504641415" />
@@ -65,10 +65,10 @@
         <entry key="app/src/main/res/layout/list_item.xml" value="0.375" />
         <entry key="app/src/main/res/layout/row_book.xml" value="0.2678837915610152" />
         <entry key="app/src/main/res/layout/row_category.xml" value="0.18608856201171875" />
-        <entry key="app/src/main/res/layout/row_doner_user.xml" value="0.6836678619636147" />
-        <entry key="app/src/main/res/layout/row_pdf_admin.xml" value="0.6721725463867189" />
+        <entry key="app/src/main/res/layout/row_doner_user.xml" value="0.3147184647340827" />
+        <entry key="app/src/main/res/layout/row_pdf_admin.xml" value="0.32879180908203126" />
         <entry key="app/src/main/res/layout/row_pdf_favourite.xml" value="0.565338134765625" />
-        <entry key="app/src/main/res/layout/row_pdf_user.xml" value="0.6368576049804688" />
+        <entry key="app/src/main/res/layout/row_pdf_user.xml" value="0.5272727272727272" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
       </map>
