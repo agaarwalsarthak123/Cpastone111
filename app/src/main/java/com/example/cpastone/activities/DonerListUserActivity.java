@@ -104,7 +104,6 @@ public class DonerListUserActivity extends AppCompatActivity {
                             ModelDoner model = ds.getValue(ModelDoner.class);
                             donerArrayList.add(model);
 
-
                             Log.d(TAG, "onDataChange: "+model.getId()+" "+model.getName());
                         }
 

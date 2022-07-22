@@ -27,7 +27,7 @@
         android:layout_below="@id/icoNIv"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Welcome to Book App"
+        android:text="Welcome to LazyRead"
         android:textColor="@color/black"
         android:textSize="16sp" />
 

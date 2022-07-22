@@ -37,6 +37,11 @@ public class FilterPdfAdmin extends Filter {
                     // add to filtered list
                     filteredModels.add(filterList.get(i));
                 }
+                if(filterList.get(i).getDescription().toUpperCase().contains(constraint)) {
+                    // add to filtered list
+                    filteredModels.add(filterList.get(i));
+                }
+
             }
             results.count = filteredModels.size();
             results.values = filteredModels;

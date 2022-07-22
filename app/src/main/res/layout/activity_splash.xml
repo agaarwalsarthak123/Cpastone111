@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="Book App"
+        android:text="LazyRead"
         android:textColor="@color/black"
         android:textSize="20sp" />
 
-  </LinearLayout>
+</LinearLayout>

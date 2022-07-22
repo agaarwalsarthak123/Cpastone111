@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cpastone</string>
+    <string name="app_name">LazyRead</string>
     <string name="new_user_signup">New User? <b>SignUp</b></string>
     <string name="google_map_api_key">AIzaSyB1flMtunsHqNVSTw-dufscp4nQZKwTrxo</string>
     <!-- TODO: Remove or change this placeholder text -->
