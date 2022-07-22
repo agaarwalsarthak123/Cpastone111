@@ -26,7 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-import maes.tech.intentanim.CustomIntent;
 
 public class DashboardUserActivity extends AppCompatActivity {
 
@@ -67,7 +66,6 @@ public class DashboardUserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DashboardUserActivity.this, ProfileActivity.class));
-                CustomIntent.customType(DashboardUserActivity.this, "left-to-right");
 
             }
         });
