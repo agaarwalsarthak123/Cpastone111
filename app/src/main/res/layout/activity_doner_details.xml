@@ -56,21 +56,14 @@
                     android:id="@+id/donerRl"
                     android:layout_width="100dp"
                     android:layout_height="140dp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@color/gray02">
+                    android:layout_marginEnd="5dp">
 
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/doner_image" />
                 </RelativeLayout>
-
-
-                <!--                &lt;!&ndash;Book title&ndash;&gt;-->
-                <!--                <TextView-->
-                <!--                    android:id="@+id/"-->
-                <!--                    style="@style/TextAppearance.MaterialComponents.Headline6"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_toEndOf="@id/donerRl"-->
-                <!--                    android:text="Doner Name" />-->
-
 
                 <TextView
                     android:id="@+id/titleLabelTv"

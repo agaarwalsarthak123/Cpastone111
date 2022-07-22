@@ -66,7 +66,7 @@ public class DashboardUserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DashboardUserActivity.this, ProfileActivity.class));
-
+//                CustomIntent.customType(DashboardUserActivity.this, "left-to-write");
 
             }
         });

@@ -70,7 +70,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.9.0'
 
 
-//    material UI
+//    animation library
+//    implementation 'com.github.hajiyevelnur92:intentanimation:1.0'
 
 
 }

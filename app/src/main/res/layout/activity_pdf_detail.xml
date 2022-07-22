@@ -36,9 +36,9 @@
 
 <!--        Scroll View-->
     <ScrollView
-        android:layout_above="@+id/bookOptionsLL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/bookOptionsLL"
         android:layout_below="@+id/toolbarRl"
         android:padding="10dp">
 
@@ -51,18 +51,23 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-<!--                    Book preview-->
+                <!--                    Book preview-->
+
+
+                <!--Book title-->
                 <RelativeLayout
                     android:id="@+id/pdfRl"
                     android:layout_width="100dp"
                     android:layout_height="140dp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@color/gray02">
+                    android:layout_marginEnd="5dp">
 
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/book_details" />
                 </RelativeLayout>
 
-
-                <!--Book title-->
                 <TextView
                     android:id="@+id/titleTv"
                     style="@style/TextAppearance.MaterialComponents.Headline6"
