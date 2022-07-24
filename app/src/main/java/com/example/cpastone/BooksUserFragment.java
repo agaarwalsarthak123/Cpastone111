@@ -1,5 +1,6 @@
 package com.example.cpastone;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -29,14 +30,14 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class BooksUserFragment extends Fragment {
-        private String categoryId;
-        private String category;
-        private String uid;
+    private String categoryId;
+    private String category;
+    private String uid;
 
-        private ArrayList<ModelPdf> pdfArrayList;
-        private AdapterPdfUser adapterPdfUser;
+    private ArrayList<ModelPdf> pdfArrayList;
+    private AdapterPdfUser adapterPdfUser;
 
-        // view binding
+    // view binding
     private FragmentBooksUserBinding binding;
 
     public static final String TAG = "BOOKS_USER_TAG";
@@ -135,6 +136,47 @@ public class BooksUserFragment extends Fragment {
                     // adding to the list
                     pdfArrayList.add(model);
                 }
+
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+
+                    long totalViewCount = 0;
+                    long totalDownloadCount = 0;
+                    long totalDaysCount = 0;
+                    long currentTimeStamp = System.currentTimeMillis();
+
+                    for (ModelPdf item : pdfArrayList){
+                        totalViewCount += item.getViewsCount();
+                        totalDownloadCount += item.getDownloadCount();
+
+                        long dateDiffFromToday = ((currentTimeStamp -  Long.parseLong(item.getTimestamp()))/(86400000));
+                        totalDaysCount += dateDiffFromToday;
+
+                    }
+
+                    long avgViewCount = totalViewCount/pdfArrayList.size();
+                    long avgDownloadCount = totalDownloadCount/pdfArrayList.size();
+                    long avgDayCount = totalDaysCount/pdfArrayList.size();
+
+                    int m = 10;
+                    long r = ((2*avgViewCount) + (3*avgDownloadCount))/2;
+
+                    pdfArrayList.sort((oldItem, newItem) -> {
+
+                        long vNew = newItem.getDownloadCount();
+                        long vOld = oldItem.getDownloadCount();
+
+                        if (vNew == 0) vNew = 1;
+                        if (vOld == 0) vOld = 1;
+
+                        String resultNew = String.valueOf((((vNew/(vNew + m)) * r) + ((m/vNew) * avgDayCount)));
+                        String resultOld =  String.valueOf((((vOld/(vOld + m)) * r) + ((m/vOld) * avgDayCount)));
+
+                        return resultOld.compareTo(resultNew);
+                    });
+
+                }
+
                 // setting up adapter
                 adapterPdfUser = new AdapterPdfUser(getContext(), pdfArrayList);
                 // setting adapter to recyclerview
@@ -155,29 +197,29 @@ public class BooksUserFragment extends Fragment {
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Books");
         ref.orderByChild(orderBy).limitToLast(10)
-            .addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                pdfArrayList.clear();
-                for (DataSnapshot ds: snapshot.getChildren()) {
-                    // getting data
-                    ModelPdf model = ds.getValue(ModelPdf.class);
-                //    Log.d("Sarthak", model.getTimestamp());
-                    // adding to the list
-                    pdfArrayList.add(model);
-                }
-                // setting up adapter
-                adapterPdfUser = new AdapterPdfUser(getContext(), pdfArrayList);
-                // setting adapter to recyclerview
-                binding.booksRv.setAdapter(adapterPdfUser);
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        pdfArrayList.clear();
+                        for (DataSnapshot ds: snapshot.getChildren()) {
+                            // getting data
+                            ModelPdf model = ds.getValue(ModelPdf.class);
+                            //    Log.d("Sarthak", model.getTimestamp());
+                            // adding to the list
+                            pdfArrayList.add(model);
+                        }
+                        // setting up adapter
+                        adapterPdfUser = new AdapterPdfUser(getContext(), pdfArrayList);
+                        // setting adapter to recyclerview
+                        binding.booksRv.setAdapter(adapterPdfUser);
 
-            }
+                    }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+                    }
+                });
 
     }
 

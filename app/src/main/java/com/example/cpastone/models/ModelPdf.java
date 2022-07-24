@@ -4,8 +4,7 @@ public class ModelPdf {
 
     // variables
     String uid, id, title, description, categoryId, url;
-   // Long  timestamp;
-    boolean favourite;
+    String  timestamp;
     long viewsCount, downloadCount;
 
 
@@ -14,19 +13,27 @@ public class ModelPdf {
     public ModelPdf(){
     }
 
-    public ModelPdf(String uid, String id, String title, String description, String categoryId, String url, boolean favourite, long viewsCount, long downloadCount) {
+    public ModelPdf(String uid, String id, String title, String description, String categoryId, String url, String timestamp, long viewsCount, long downloadCount) {
         this.uid = uid;
         this.id = id;
         this.title = title;
         this.description = description;
         this.categoryId = categoryId;
         this.url = url;
-        this.favourite = favourite;
+        this.timestamp = timestamp;
         this.viewsCount = viewsCount;
         this.downloadCount = downloadCount;
     }
 //    getters and setters
 
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
 
     public String getUid() {
         return uid;
@@ -76,13 +83,13 @@ public class ModelPdf {
         this.url = url;
     }
 
-    public boolean isFavourite() {
-        return favourite;
-    }
-
-    public void setFavourite(boolean favourite) {
-        this.favourite = favourite;
-    }
+//    public String getTimestamp() {
+//        return timestamp.toString();
+//    }
+//
+//    public void setTimestamp(Long timestamp) {
+//        this.timestamp = timestamp;
+//    }
 
     public long getViewsCount() {
         return viewsCount;

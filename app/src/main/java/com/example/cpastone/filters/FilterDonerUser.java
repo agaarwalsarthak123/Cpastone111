@@ -20,8 +20,7 @@ public class FilterDonerUser extends Filter {
     // constructor
     public FilterDonerUser(ArrayList<ModelDoner> filterList, AdapterDonerUser adapterDonerUser) {
         this.filterList = filterList;
-        this.adapterDonerUser = adapterDonerUser;
-    }
+        this.adapterDonerUser = adapterDonerUser;}
 
 
     @Override
