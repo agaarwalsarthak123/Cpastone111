@@ -190,6 +190,11 @@
                             android:text="N/A" />
                     </TableRow>
 
+
+                    <!--         Number of Pages       -->
+                    <TableRow android:layout_marginTop="5dp"/>
+
+
                 </TableLayout>
 
 
@@ -204,6 +209,28 @@
                 android:text="The description of the book"
                 android:textColor="@color/black" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/gray03" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+<!--                    Button: Show comment add dialog-->
+
+                    <ImageButton
+                        android:id="@+id/addCommentBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:background="@android:color/transparent"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_comment_add_black" />
+
+                </RelativeLayout>
 
         </LinearLayout>
 
@@ -215,16 +242,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/design_default_color_primary"
         android:layout_alignParentBottom="true">
 
 <!--        Book download pdf-->
         <Button
             android:id="@+id/downloadBookBtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@drawable/ic_download_white"
             android:text="Download"
+            android:background="@color/design_default_color_primary"/>
+
+        <!-- Button: Add / Remove Favourite-->
+        <Button
+            android:id="@+id/favouriteBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_favorite_border_white"
+            android:text="Add to Favourite"
             android:background="@color/design_default_color_primary"/>
 
     </LinearLayout>

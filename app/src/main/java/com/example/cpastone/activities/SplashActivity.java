@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import com.example.cpastone.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,10 +25,10 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
+        Log.d("Check Logging in11","Check Logging in");
         // init firebase auth
         firebaseAuth = FirebaseAuth.getInstance();
-
+        Log.d("Check Logging in","Check Logging in");
 
         // start main screen after 2 seconds
         new Handler().postDelayed(new Runnable() {

@@ -6,6 +6,7 @@ public class ModelPdf {
     String uid, id, title, description, categoryId, url;
     String  timestamp;
     long viewsCount, downloadCount;
+    boolean favourite;
 
 
     // empty constructors
@@ -13,7 +14,7 @@ public class ModelPdf {
     public ModelPdf(){
     }
 
-    public ModelPdf(String uid, String id, String title, String description, String categoryId, String url, String timestamp, long viewsCount, long downloadCount) {
+    public ModelPdf(String uid, String id, String title, String description, String categoryId, String url, String timestamp, long viewsCount, long downloadCount, boolean favourite) {
         this.uid = uid;
         this.id = id;
         this.title = title;
@@ -23,17 +24,11 @@ public class ModelPdf {
         this.timestamp = timestamp;
         this.viewsCount = viewsCount;
         this.downloadCount = downloadCount;
-    }
-//    getters and setters
-
-
-    public String getTimestamp() {
-        return timestamp;
+        this.favourite = favourite;
     }
 
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
-    }
+    //    getters and setters
+
 
     public String getUid() {
         return uid;
@@ -83,13 +78,13 @@ public class ModelPdf {
         this.url = url;
     }
 
-//    public String getTimestamp() {
-//        return timestamp.toString();
-//    }
-//
-//    public void setTimestamp(Long timestamp) {
-//        this.timestamp = timestamp;
-//    }
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
 
     public long getViewsCount() {
         return viewsCount;
@@ -105,6 +100,14 @@ public class ModelPdf {
 
     public void setDownloadCount(long downloadCount) {
         this.downloadCount = downloadCount;
+    }
+
+    public boolean isFavourite() {
+        return favourite;
+    }
+
+    public void setFavourite(boolean favourite) {
+        this.favourite = favourite;
     }
 }
 

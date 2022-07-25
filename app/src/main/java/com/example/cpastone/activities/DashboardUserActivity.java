@@ -26,6 +26,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import maes.tech.intentanim.CustomIntent;
+
 
 public class DashboardUserActivity extends AppCompatActivity {
 
@@ -57,7 +59,8 @@ public class DashboardUserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 firebaseAuth.signOut();
-                checkUser();
+                startActivity(new Intent(DashboardUserActivity.this, MainActivity.class));
+                finish();
             }
         });
 
@@ -65,8 +68,9 @@ public class DashboardUserActivity extends AppCompatActivity {
         binding.profileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 startActivity(new Intent(DashboardUserActivity.this, ProfileActivity.class));
-//                CustomIntent.customType(DashboardUserActivity.this, "left-to-write");
+                CustomIntent.customType(DashboardUserActivity.this, "right-to-left");
 
             }
         });
