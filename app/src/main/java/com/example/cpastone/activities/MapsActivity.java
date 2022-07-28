@@ -25,7 +25,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -52,12 +51,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMapsBinding.inflate(getLayoutInflater());
+        binding =ActivityMapsBinding.inflate(getLayoutInflater());
+
         setContentView(binding.getRoot());
+
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
+
         mapFragment.getMapAsync(this);
         ChildEventListener mChildEventListener;
         mUsers = FirebaseDatabase.getInstance().getReference("Details");
@@ -100,8 +102,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Log.d("xLongitude", ""+y);
                     LatLng location = new LatLng(x,y);
                     Log.d("LatLnglocation", location.toString());
-
-                    mMap.addMarker(new MarkerOptions().position(location).title(user.getName())).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW));
+                    LatLng average = new LatLng(37.47784891689178, -122.1679221357188);
+                    mMap.addMarker(new MarkerOptions().position(location).title(user.getName()).snippet(user.getCondition())).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(average, 10f));
                 }
             }
 

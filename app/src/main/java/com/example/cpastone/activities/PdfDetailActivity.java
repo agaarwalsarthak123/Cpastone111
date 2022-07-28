@@ -131,12 +131,7 @@ public class PdfDetailActivity extends AppCompatActivity {
         binding.addCommentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if(firebaseAuth.getCurrentUser() != null) {
-//                    Toast.makeText(PdfDetailActivity.this, "You are not logged in....", Toast.LENGTH_SHORT).show();
-//                }
-//                else {
                     addCommentDialog();
-                //}
             }
         });
     }

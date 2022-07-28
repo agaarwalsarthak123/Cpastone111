@@ -113,14 +113,18 @@
                 android:layout_height="wrap_content"
                 android:text="Account"
                 android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textSize="12sp"/>
 
             <TextView
                 android:id="@+id/accountTypeTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="N/A"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textSize="12sp"/>
         </LinearLayout>
 
 <!--Member Since-->
@@ -136,14 +140,18 @@
                 android:layout_height="wrap_content"
                 android:text="Member"
                 android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textSize="12sp"/>
 
             <TextView
                 android:id="@+id/memberDateTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="N/A"
-                android:textColor="@color/black"/>
+                android:text="03/18/2002"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textSize="12sp"/>
         </LinearLayout>
 
         <!--        Favourite Books Count-->
@@ -159,14 +167,46 @@
                 android:layout_height="wrap_content"
                 android:text="Favourite Books"
                 android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textSize="12sp"/>
 
             <TextView
                 android:id="@+id/favouriteBookCountTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="N/A"
-                android:textColor="@color/black" />
+                android:text="99"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+<!--    Account Status    -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account Status"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/accountStatusTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not Verified"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -180,14 +220,16 @@
         android:layout_marginTop="8dp"
         android:background="@color/gray03"
         android:layout_below="@+id/detailsLl" />
+
     <TextView
         android:id="@+id/favouriteBooksLabelTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="232dp"
+        android:layout_height="38dp"
         android:layout_below="@+id/view1"
-        android:text="Favourite Books"
         android:padding="5dp"
+        android:text="Favourite Books"
         android:textColor="@color/black"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
