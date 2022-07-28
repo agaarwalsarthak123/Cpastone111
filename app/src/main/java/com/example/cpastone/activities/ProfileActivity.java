@@ -1,12 +1,16 @@
 package com.example.cpastone.activities;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.cpastone.MyApplication;
@@ -14,7 +18,10 @@ import com.example.cpastone.R;
 import com.example.cpastone.adapters.AdapterPdfFavourite;
 import com.example.cpastone.databinding.ActivityProfileBinding;
 import com.example.cpastone.models.ModelPdf;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,12 +36,17 @@ public class ProfileActivity extends AppCompatActivity {
     // view binding
     private ActivityProfileBinding binding;
 
+    private FirebaseUser firebaseUser;
+
 // firebase for loading user data using user uid
     private FirebaseAuth firebaseAuth;
     public static final String TAG = "PROFILE_TAG";
 
     // array list to hold the books
     private ArrayList<ModelPdf>pdfArrayList;
+
+    // progress dialog
+    private ProgressDialog progressDialog;
 
     //    adapter to set in recycler view
     private AdapterPdfFavourite adapterPdfFavourite;
@@ -45,8 +57,22 @@ public class ProfileActivity extends AppCompatActivity {
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // reset adapter data to use user info
+        binding.accountTypeTv.setText("N/A");
+        binding.memberDateTv.setText("N/A");
+        binding.favouriteBookCountTv.setText("N/A");
+        binding.accountStatusTv.setText("N/A");
+
         // setup firebase auth
         firebaseAuth = FirebaseAuth.getInstance();
+        // getting current user
+        firebaseUser = firebaseAuth.getCurrentUser();
+
+        // inti/setup progress dialog
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Please Wait");
+        progressDialog.setCanceledOnTouchOutside(false);
+
         loadUserInfo();
         loadFavouriteBooks();
 
@@ -66,12 +92,79 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        // handles click, verifies user
+        binding.accountStatusTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(firebaseUser.isEmailVerified()) {
+                    // already verified
+                    Toast.makeText(ProfileActivity.this, "Already verified", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    // not verified, showing confirmation dialog box
+                    emailVerificationDialog();
+                }
+            }
+        });
+
 
 
     }
 
+    private void emailVerificationDialog() {
+        // Alert dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Verify Email")
+                .setMessage("Are you sure you want to send a verification email to your email "+firebaseUser.getEmail())
+                .setPositiveButton("Send", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        sendEmailVerification();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
+    }
+
+    private void sendEmailVerification() {
+        // showing progress bar
+        progressDialog.setMessage("Sending email verification instructions to your email "+firebaseUser.getEmail());
+        progressDialog.show();
+
+        firebaseUser.sendEmailVerification()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        // successfully sent
+                        progressDialog.dismiss();
+                        Toast.makeText(ProfileActivity.this, "Instructions have been sent to your email address: "+firebaseUser.getEmail(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // failed to send
+                        progressDialog.dismiss();
+                        Toast.makeText(ProfileActivity.this, "Failed due to" +e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
     private void loadUserInfo() {
         Log.d(TAG, "loadUserInfo: Loading user info of user "+firebaseAuth.getUid());
+
+        // getting email verification status
+        if(firebaseUser.isEmailVerified()) {
+            binding.accountStatusTv.setText("Verified");
+        }
+        else {
+            binding.accountStatusTv.setText("Not Verified");
+        }
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
         reference.child(firebaseAuth.getUid())
