@@ -5,11 +5,10 @@ import android.util.Log;
 public class ModelDoner {
 
     // variables
-    String uid, id, name, condition, latitude, longitude, url, bookId, year;
+    String uid, id, name, condition, latitude, longitude, url, bookId, year, selectedBookTitle;
     long viewsCount;
 
-
-    public ModelDoner(String uid, String id, String name, String condition, String latitude, String longitude, String url, String bookId, String year, long viewsCount) {
+    public ModelDoner(String uid, String id, String name, String condition, String latitude, String longitude, String url, String bookId, String year, String selectedBookTitle, long viewsCount) {
         this.uid = uid;
         this.id = id;
         this.name = name;
@@ -19,6 +18,7 @@ public class ModelDoner {
         this.url = url;
         this.bookId = bookId;
         this.year = year;
+        this.selectedBookTitle = selectedBookTitle;
         this.viewsCount = viewsCount;
     }
 
@@ -96,6 +96,14 @@ public class ModelDoner {
 
     public void setYear(String year) {
         this.year = year;
+    }
+
+    public String getSelectedBookTitle() {
+        return selectedBookTitle;
+    }
+
+    public void setSelectedBookTitle(String selectedBookTitle) {
+        this.selectedBookTitle = selectedBookTitle;
     }
 
     public long getViewsCount() {

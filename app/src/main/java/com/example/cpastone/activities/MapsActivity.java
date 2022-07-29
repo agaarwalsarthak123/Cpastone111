@@ -87,7 +87,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         googleMap.getUiSettings().setZoomControlsEnabled(true);
         googleMap.getUiSettings().setCompassEnabled(true);
-
         mMap = googleMap;
         googleMap.setOnMarkerClickListener(this);
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -103,7 +102,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     LatLng location = new LatLng(x,y);
                     Log.d("LatLnglocation", location.toString());
                     LatLng average = new LatLng(37.47784891689178, -122.1679221357188);
-                    mMap.addMarker(new MarkerOptions().position(location).title(user.getName()).snippet(user.getCondition())).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                    mMap.addMarker(new MarkerOptions().position(location).title(user.getName()).snippet((user.getSelectedBookTitle())+" , "+(user.getCondition()))).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(average, 10f));
                 }
             }

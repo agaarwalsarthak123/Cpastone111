@@ -225,6 +225,7 @@ public class DonerAddActivity extends AppCompatActivity {
         hashMap.put("url", ""+uploadedPictureUrl);
         hashMap.put("timestamp", ""+timestamp);
         hashMap.put("viewsCount", 0);
+        hashMap.put("selectedBookTitle", ""+selectedBookTitle);
 
         // db reference; DB -> Details
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Details");
